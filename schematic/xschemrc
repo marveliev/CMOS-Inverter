@@ -1,0 +1,15 @@
+
+source /home/mveliev/ams/pdks/share/pdk/sky130A/libs.tech/xschem/xschemrc
+
+
+set XSCHEM_START_WINDOW {}
+set local_netlist_dir 1
+
+set editor {code --wait}
+
+set initial_geometry {1320x800+2100+80}
+set file_dialog_default_geometry {900x650+2200+140}
+
+# hotkeys
+set replace_key(Control-z) u
+set replace_key(Control-y) Shift-U

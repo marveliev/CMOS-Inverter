@@ -1,0 +1,29 @@
+# Personal documents - never commit to a public repo
+user_cv.txt
+*_cv.txt
+*cv*.pdf
+.helpful/
+
+# Design logbook kept locally
+logbook/
+
+# OS / filesystem artifacts
+*:Zone.Identifier
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*~
+
+# Layout backups
+*.mag.~*~
+*.ext.~*~
+
+# Magic extraction intermediate (regenerated from .mag)
+layout/*.ext
+
+# ngspice / simulation scratch output
+*.raw
+*.log.bak
+simulation/pvt/runs/*.log

@@ -1,0 +1,50 @@
+** sch_path: /home/mveliev/ams/projects/02_cmos_inverter/xschem/simulation/inverter_schematic.sch
+**.subckt inverter_schematic
+VDD VDD 0 1.8
+VIN VIN 0 0
+x2 VDD VOUT VIN 0 inverter
+**** begin user architecture code
+
+
+.lib /home/mveliev/ams/pdks/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+.save all
+
+.dc VIN 0 1.8 0.01
+
+.control
+run
+	let static_power = v(vdd)*(-i(vdd))
+
+	meas dc static_power_MAX max static_power
+	meas dc static_power_HIGH find static_power at=1.8
+	meas dc static_power_LOW find static_power at=0
+
+
+	let static_MAX_mW = static_power_MAX*1e3
+	let static_HIGH_uW = static_power_HIGH*1e6
+	let static_LOW_uW = static_power_LOW*1e6
+
+	print static_MAX_uW static_HIGH_uW static_LOW_uW
+	plot static_MAX_uW static_HIGH_uW static_LOW_uW
+.endc
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  /home/mveliev/ams/projects/02_cmos_inverter/xschem/simulation/inverter.sym # of pins=4
+** sym_path: /home/mveliev/ams/projects/02_cmos_inverter/xschem/simulation/inverter.sym
+** sch_path: /home/mveliev/ams/projects/02_cmos_inverter/xschem/simulation/inverter.sch
+.subckt inverter VDD VOUT VIN VSS
+*.opin VOUT
+*.ipin VIN
+*.ipin VDD
+*.ipin VSS
+XM1 VOUT VIN VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=3.51 nf=1 ad=1.0179 as=1.0179 pd=7.6 ps=7.6 nrd=0.0826210826210826
++ nrs=0.0826210826210826 sa=0 sb=0 sd=0 mult=1
+XM2 VOUT VIN VSS VSS sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0 sd=0
++ mult=1
+.ends
+
+.end

@@ -1,0 +1,10 @@
+* SPICE3 file created from inverter_layout.ext - technology: sky130A
+
+X0 vout vin vdd vdd sky130_fd_pr__pfet_01v8 ad=2.457 pd=8.42 as=2.457 ps=8.42 w=3.51 l=0.15
+X1 vout vin vss vss sky130_fd_pr__nfet_01v8 ad=0.7 pd=3.4 as=0.7 ps=3.4 w=1 l=0.15
+C0 vout vin 0.13488f
+C1 vin vdd 0.2017f
+C2 vout vdd 0.41399f
+C3 vout vss 0.64505f **FLOATING
+C4 vin vss 0.49202f **FLOATING
+C5 vdd vss 2.35663f **FLOATING

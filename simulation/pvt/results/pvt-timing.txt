@@ -1,0 +1,60 @@
+PVT timing results - inverter, pre-layout (schematic) vs post-layout (PEX)
+Process corners from sky130.lib.spice; VDD and temperature as listed
+Thresholds scaled to supply: tPHL/tPLH at VDD/2, rise/fall at 10%/90% of VDD
+C_load = 20 fF, VIN PULSE(0 VDD 0 20p 20p 5n 10n), measurements on 2nd edge
+
+PRE-LAYOUT (schematic netlist)
+Voltage sweep at TT, 27 C
+Parameter	1.62 V	1.80 V	1.98 V
+tPHL (ps)	61.0317	53.7223	48.7815
+tPLH (ps)	47.7756	40.1351	35.2634
+t_i_rise (ps)	16.0000	16.0000	16.0000
+t_i_fall (ps)	16.0000	16.0000	16.0000
+t_o_rise (ps)	83.1146	69.7262	61.6199
+t_o_fall (ps)	88.6656	77.1072	69.5113
+
+Temperature sweep at TT, 1.80 V
+Parameter	-40 C	27 C	125 C
+tPHL (ps)	48.5066	53.7223	61.7874
+tPLH (ps)	42.1050	40.1351	37.9083
+t_i_rise (ps)	16.0000	16.0000	16.0000
+t_i_fall (ps)	16.0000	16.0000	16.0000
+t_o_rise (ps)	71.3602	69.7262	68.3078
+t_o_fall (ps)	67.7582	77.1072	92.1423
+
+Combined PVT extremes
+Parameter	SS / 1.62 V / 125 C	FF / 1.98 V / -40 C
+tPHL (ps)	86.3989	38.9585
+tPLH (ps)	58.6846	28.1242
+t_i_rise (ps)	16.0000	16.0000
+t_i_fall (ps)	16.0000	16.0000
+t_o_rise (ps)	103.9110	48.0250
+t_o_fall (ps)	129.5510	55.3426
+
+POST-LAYOUT (PEX netlist)
+Voltage sweep at TT, 27 C
+Parameter	1.62 V	1.80 V	1.98 V
+tPHL (ps)	67.1194	59.0180	53.5524
+tPLH (ps)	52.4050	43.9398	38.5579
+t_i_rise (ps)	16.0000	16.0000	16.0000
+t_i_fall (ps)	16.0000	16.0000	16.0000
+t_o_rise (ps)	92.2375	77.2962	68.2438
+t_o_fall (ps)	98.4887	85.5755	77.0851
+
+Temperature sweep at TT, 1.80 V
+Parameter	-40 C	27 C	125 C
+tPHL (ps)	53.1659	59.0180	68.0434
+tPLH (ps)	46.0159	43.9398	41.5853
+t_i_rise (ps)	16.0000	16.0000	16.0000
+t_i_fall (ps)	16.0000	16.0000	16.0000
+t_o_rise (ps)	78.9859	77.2962	75.8171
+t_o_fall (ps)	75.0527	85.5755	102.4490
+
+Combined PVT extremes
+Parameter	SS / 1.62 V / 125 C	FF / 1.98 V / -40 C
+tPHL (ps)	95.5550	42.5858
+tPLH (ps)	64.8124	30.5377
+t_i_rise (ps)	16.0000	16.0000
+t_i_fall (ps)	16.0000	16.0000
+t_o_rise (ps)	115.9310	52.9080
+t_o_fall (ps)	144.8060	61.0067

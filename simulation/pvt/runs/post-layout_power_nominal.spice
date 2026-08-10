@@ -1,0 +1,54 @@
+** sch_path: /home/mveliev/ams/projects/02_cmos_inverter/xschem/simulation/tb_tran.sch
+**.subckt tb_tran
+VDD VDD 0 1.8
+VIN VIN 0 PULSE(0 1.8 0 20p 20p 5n 10n)
+C_load VOUT 0 20f
+x1 VDD VOUT VIN 0 inverter
+**** begin user architecture code
+
+
+.lib /home/mveliev/ams/pdks/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+.save all
+
+.temp 27
+.tran 0.5p 50n
+
+.control
+run
+	let I_s      = -i(VDD)
+	let V_s      =  v(VDD)
+	let P_s      =  V_s*I_s
+
+
+	meas tran   P_avg         AVG       P_s     from=10n to=50n
+	meas tran   P_peak        MAX       P_s     from=10n to=50n
+	meas tran   E_s           INTEG     P_s     from=10n to=50n
+
+
+	let E_period = E_s/4
+
+
+	print P_avg P_peak E_s E_period
+	plot  P_s
+.endc
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  /home/mveliev/ams/projects/02_cmos_inverter/xschem/simulation/inverter.sym # of pins=4
+** sym_path: /home/mveliev/ams/projects/02_cmos_inverter/xschem/simulation/inverter.sym
+** sch_path: /home/mveliev/ams/projects/02_cmos_inverter/xschem/simulation/inverter.sch
+.subckt inverter VDD VOUT VIN VSS
+X0 vout vin vdd vdd sky130_fd_pr__pfet_01v8 ad=2.457 pd=8.42 as=2.457 ps=8.42 w=3.51 l=0.15
+X1 vout vin vss vss sky130_fd_pr__nfet_01v8 ad=0.7 pd=3.4 as=0.7 ps=3.4 w=1 l=0.15
+C0 vout vin 0.13488f
+C1 vin vdd 0.2017f
+C2 vout vdd 0.41399f
+C3 vout vss 0.64505f
+C4 vin vss 0.49202f
+C5 vdd vss 2.35663f
+.ends
+.end
+

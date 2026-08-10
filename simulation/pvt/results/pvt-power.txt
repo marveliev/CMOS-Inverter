@@ -1,0 +1,55 @@
+PVT DYNAMIC POWER RESULTS: PRE-LAYOUT VS POST-LAYOUT
+Process corners from sky130.lib.spice; VDD and temperature as listed
+C_load = 20 fF, 100 MHz, power from VDD source, averaged 10n to 50n
+
+
+
+
+PRE-LAYOUT (schematic netlist)
+Voltage sweep at TT, 27 C
+Measurement	1.62 V	1.80 V	1.98 V
+P_avg (W)	6.378448e-06	7.872655e-06	9.517426e-06
+P_peak (W)	1.179453e-03 (@2.50400e-08)	1.652030e-03 (@2.50400e-08)	2.197758e-03 (@4.50400e-08)
+E_s (J)	2.551269e-13	3.148917e-13	3.806800e-13
+E_period (J)	6.378173e-14	7.872293e-14	9.517000e-14
+
+Temp sweep at TT, 1.8 V
+Measurement	-40 C	27 C	125 C
+P_avg (W)	7.809711e-06	7.872655e-06	8.003034e-06
+P_peak (W)	1.611668e-03 (@4.50400e-08)	1.652030e-03 (@2.50400e-08)	1.696132e-03 (@2.50400e-08)
+E_s (J)	3.123727e-13	3.148917e-13	3.201071e-13
+E_period (J)	7.809318e-14	7.872293e-14	8.002677e-14
+
+Combined PVT extremes
+Measurement	SS / 1.62 V / 125 C	FF / 1.98 V / -40 C
+P_avg (W)	6.542959e-06	9.315387e-06
+P_peak (W)	1.043196e-03 (@4.50400e-08)	2.590461e-03 (@2.50400e-08)
+E_s (J)	2.617088e-13	3.725935e-13
+E_period (J)	6.542720e-14	9.314837e-14
+
+
+
+
+
+POST-LAYOUT (PEX netlist)
+
+V sweep at TT, 27 C
+Measurement	1.62 V	1.80 V	1.98 V
+P_avg (W)	7.077166e-06	8.728102e-06	1.054431e-05
+P_peak (W)	1.183225e-03 (@1.50400e-08)	1.649971e-03 (@1.50400e-08)	2.188899e-03 (@2.50400e-08)
+E_s (J)	2.830784e-13	3.491110e-13	4.217576e-13
+E_period (J)	7.076960e-14	8.727775e-14	1.054394e-13
+
+Temp sweep at TT, 1.8 V
+Measurement	-40 C	27 C	125 C
+P_avg (W)	8.645040e-06	8.728102e-06	8.878332e-06
+P_peak (W)	1.611926e-03 (@1.50400e-08)	1.649971e-03 (@1.50400e-08)	1.692093e-03 (@1.50400e-08)
+E_s (J)	3.457862e-13	3.491110e-13	3.550986e-13
+E_period (J)	8.644655e-14	8.727775e-14	8.877465e-14
+
+Combined PVT extremes
+Measurement	SS / 1.62 V / 125 C	FF / 1.98 V / -40 C
+P_avg (W)	7.293957e-06	1.027116e-05
+P_peak (W)	1.053523e-03 (@2.50400e-08)	2.570951e-03 (@1.50400e-08)
+E_s (J)	2.917387e-13	4.108258e-13
+E_period (J)	7.293467e-14	1.027065e-13

@@ -1,0 +1,40 @@
+[
+  {
+  },
+  {
+   "name": [
+      "inverter_layout",
+      "inverter"
+   ],
+   "devices": [
+       [
+         ["sky130_fd_pr__pfet_01v8", 1],
+         ["sky130_fd_pr__nfet_01v8", 1 ]
+       ], [
+         ["sky130_fd_pr__pfet_01v8", 1 ],
+         ["sky130_fd_pr__nfet_01v8", 1 ]
+       ]
+   ],
+   "nets": [
+    4,
+    4
+   ],
+   "badnets": [
+   ],
+   "badelements": [
+   ],
+   "pins": [
+      [
+        "vout",
+        "vin",
+        "vdd",
+        "vss"
+      ], [
+        "VOUT",
+        "VIN",
+        "VDD",
+        "VSS"
+      ]
+   ]
+  }
+]
